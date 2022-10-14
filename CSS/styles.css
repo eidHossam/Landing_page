@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
+}
+
+.hero-container{
+    height: 50vh ;   
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* margin-top: 60px; */
+}
+
+.hero{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 100px;
+}
+
+.hero h1{
+    /* background-color: black; */
+    margin-left: 10%;
+}
+
+.nav-bar{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    gap:0 20px ;
+    background-color: white;
+    list-style: none;
+    height: fit-content;
+    position:fixed;
+}
+
+.nav-link{
+    color: black;
+    text-decoration: none;
+    transition: 0.2s linear all;
+    padding: 0 5px;
+    font-size: 1.2em;
+}
+.nav-link:hover{
+    color: white;
+        background-color: black;
+}
+
+.articles-container{
+    margin:50px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.section{
+    color: white;
+    padding: 10px 10px;
+}
+
+.active-state{
+    background-color: rgba(128, 128, 128, 0.486);
+    /* background-color: black; */
+}
+.active-link{
+    color: white;
+    background-color: black;
+}
+
+.section-header{
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: block;
+    border-bottom: 2px solid rgb(204, 204, 17);
+    font-family: 'Oxygen', Sans-Serif;
+}
+
+.section{
+    font-size: larger;
+    font-family: 'Merriweather', serif;
+}
+
+#topBtn{
+    font-size: large;
+    padding: 0 15px ;
+}
+
+#topBtn:hover{
+    background-color: rgba(128, 128, 128, 0.432);
+}
+
+#topLink{
+    text-decoration: none;
+}
+.footer{
+    height: 10vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+#programmer{
+    color: aqua;
+    /* text-decoration: none; */
+    margin-left: 5px;
+}
+
+
+
+@media screen and (min-width: 35em){
+    .hero-container{
+       height: 100vh;
+    }
+    
+    .hero h1{
+        font-size: 5em;
+    }
+
+    .nav-bar{
+        justify-content: right;
+        padding-right: 20px;
+    }
+
+    .nav-link{
+        font-size: 1.5em;
+    }
+    
+    .section{
+        width: 70vw;
+    }
+
+    .articles-container{
+        gap: 150px;
+    }
+    
+    .section:nth-of-type(even)
+    {
+        text-align: right;
+        margin-left: auto;
+        
+    }
+}
