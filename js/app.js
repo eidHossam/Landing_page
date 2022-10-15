@@ -3,6 +3,9 @@ const ul = document.querySelector(".nav-bar");
 //then we select our sections to keep a count of them 
 const sections = document.querySelectorAll(".section");
 
+const toTheTop = document.getElementById("topBtn");
+
+console.log(toTheTop);
 let navLinks = [];
 
 makeNavBar();
@@ -15,7 +18,6 @@ navLinks.forEach((link) => {
         document.getElementById(id).scrollIntoView({behavior : "smooth"});
     });
 });
-
 
 
 
@@ -36,6 +38,15 @@ document.addEventListener('scroll', () =>{
                   document.getElementById(`nav-${id}`).firstChild.classList.remove("active-link");
             }
         });
+});
+
+
+toTheTop.addEventListener('click' , (event) => {
+    event.preventDefault();
+    window.scrollTo({
+        behavior: "smooth",
+        top: 0,
+        left: 0});
 });
 
 
