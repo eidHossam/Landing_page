@@ -5,16 +5,20 @@ const sections = document.querySelectorAll(".section");
 
 const toTheTop = document.getElementById("topBtn");
 
-console.log(toTheTop);
+//Empty list to hold all the nav links i create to use later
 let navLinks = [];
 
 makeNavBar();
 
+//I iterate over each nav link i have and added an even listner to each of them to detect when one of them is clicked
 navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
+        //I get the id of the link to know what section to scroll to
         let linkID = link.getAttribute("id");
+        //I use RE to extract the section number from the idea
         let id = linkID.match(/(\d+)/)[0];
+        //Scrolling to the section with smooth animation
         document.getElementById(id).scrollIntoView({behavior : "smooth"});
     });
 });
@@ -41,6 +45,7 @@ document.addEventListener('scroll', () =>{
 });
 
 
+//Added a to the top button using javascript
 toTheTop.addEventListener('click' , (event) => {
     event.preventDefault();
     window.scrollTo({
