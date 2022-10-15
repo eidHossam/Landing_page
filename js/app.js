@@ -3,7 +3,19 @@ const ul = document.querySelector(".nav-bar");
 //then we select our sections to keep a count of them 
 const sections = document.querySelectorAll(".section");
 
+let navLinks = [];
+
 makeNavBar();
+
+navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        let linkID = link.getAttribute("id");
+        let id = linkID.match(/(\d+)/)[0];
+        document.getElementById(id).scrollIntoView({behavior : "smooth"});
+    });
+});
+
 
 
 
@@ -15,13 +27,13 @@ document.addEventListener('scroll', () =>{
               {
                   section.classList.add("active-state");
                   let id = section.getAttribute("id");
-                  document.getElementById(`nav-${id}`).classList.add("active-link");
+                  document.getElementById(`nav-${id}`).firstChild.classList.add("active-link");
               }
             else//if not i remove the class from it
             {
                 section.classList.remove("active-state");
                 let id = section.getAttribute("id");
-                  document.getElementById(`nav-${id}`).classList.remove("active-link");
+                  document.getElementById(`nav-${id}`).firstChild.classList.remove("active-link");
             }
         });
 });
@@ -33,7 +45,7 @@ document.onscroll = () =>{
     clearTimeout(isScrolling);
     isScrolling = setTimeout( () => {
          ul.style.display = "none";
-    }, 1000);
+    }, 5000);
 };
 
 
@@ -46,8 +58,10 @@ function makeNavBar()
     sections.forEach((section) => {
         const link = section.getAttribute("id");
         const li = document.createElement("li");
-        li.innerHTML = `<a href="#${link}" id="nav-${link}" class="nav-link"> Section ${link} </a>`;
+        li.setAttribute("id", `nav-${link}`);
+        li.innerHTML = `<a href="#" class="nav-link"> Section ${link} </a>`;
         temp.appendChild(li);
+        navLinks.push(li);
     });
     
     ul.appendChild(temp);//after creating all the links w append the document fragment to our list
@@ -58,7 +72,7 @@ function makeNavBar()
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
-        rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 3 // i check if the section is in the middle of screen
+        rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2 // i check if the section is in the middle of screen
     );
 }
 
