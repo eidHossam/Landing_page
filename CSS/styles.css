@@ -37,14 +37,14 @@ body{
     flex-direction: row;
     flex-wrap: wrap;    
     gap:0 20px ;
-    background-color: white;
+    background-color: rgba(0, 13, 60, 0.692);
     list-style: none;
     height: fit-content;
     position:fixed;
 }
 
 .nav-link{
-    color: black;
+    color: rgb(20, 161, 154);
     text-decoration: none;
     transition: 0.2s linear all;
     padding: 0 5px;
